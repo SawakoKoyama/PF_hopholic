@@ -1,24 +1,36 @@
-# README
+# HopHolic
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+クラフトビール好きがクラフトビールを知らない人や好きな人に向けて情報を発信していく投稿サイト
 
-* Ruby version
+### サイトテーマ
 
-* System dependencies
+クラフトビールの日本のブルワリーをもっと広めたい
 
-* Configuration
+### テーマを選んだ理由
 
-* Database creation
+-日本ではまだまだクラフトビールの魅力を知らない人が多くいるため、もっと流行させていきたい   
+-クラフトビールが置いてあるレストランのサイトはよく見かけるが、そのビールがどこのブルワリーで作られているのか知らない人が多いため、実は日本には多くのブルワリーが存在することを知ってもらいたい
 
-* Database initialization
+### ターゲットユーザ
 
-* How to run the test suite
+クラフトビール好きからよく知らない人まで幅広く
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
 
-* Deployment instructions
+おすすめのクラフトビールを作っているブルワリーやそこで作られているビールについての感想を投稿・検索
 
-* ...
+## 設計書
+
+### 機能一覧
+
+https://docs.google.com/spreadsheets/d/1InHU_uREfyvrTk0kx1gGdKmCDrV2mwlyTqOkx8ZraN4/edit#gid=0
+
+## 開発環境
+
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JS ライブラリ：jQuery
+- 仮想環境：Vagrant,VirtualBox
