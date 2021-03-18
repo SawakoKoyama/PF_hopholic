@@ -1,2 +1,9 @@
-<h1>Breweries#index</h1>
-<p>Find me in app/views/breweries/index.html.erb</p>
+<h2>Breweries</h2>
+  <% @breweries.each do |brewery| %>
+    <%= link_to user_path(brewery.user) do %>
+    <%= attachment_image_tag brewery, :image, size: "60x60", fallback: "no-image.jpg"%>
+    <% end %>
+    <%= brewery.brewery_name %>
+    <%= brewery.prefecture_id %>
+    <%#= user.name %>
+  <% end %>
