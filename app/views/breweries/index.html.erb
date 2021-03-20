@@ -1,9 +1,30 @@
-<h2>Breweries</h2>
-  <% @breweries.each do |brewery| %>
-    <%= link_to user_path(brewery.user) do %>
-    <%= attachment_image_tag brewery, :image, size: "60x60", fallback: "no-image.jpg"%>
-    <% end %>
-    <%= brewery.brewery_name %>
-    <%= brewery.prefecture_id %>
-    <%#= user.name %>
-  <% end %>
+  <%# if @brewery.errors.any? %>
+        <%#div id="error_explanation">
+          <h2>
+            <%= I18n.t("errors.messages.not_saved",
+                       count: @brewery.errors.count,
+                       resource: @brewery.class.model_name.human.downcase)
+             %>
+          </h2>
+          <ul>
+            <%# @brewery.errors.full_messages.each do |message| %>
+              <%#li><%= message %></li>
+            <%# end %>
+          </ul>
+        </div>
+
+            <h2>Breweries</h2>
+              <% @breweries.each do |brewery| %>
+                <%= link_to brewery_path(brewery.id) do %>
+                <%= attachment_image_tag brewery, :image, size: "60x60", fallback: "no_image.jpg"%>
+                <% end %>
+                <%= brewery.brewery_name %>
+                <%= brewery.prefecture_id %>
+                <%= @user.name %>
+              <% end %>
+
+                <%= link_to new_brewery_path, method: :get do %>
+                  <i class="fas fa-plus-circle"></i>
+                <% end %>
+
+<%# end %>

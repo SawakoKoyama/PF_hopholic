@@ -1,2 +1,49 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<html>
+  <head></head>
+  <body>
+    <header></header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <h2>User info</h2>
+            <%= form_with model:@user, local:true do |f| %>
+              <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2>
+                <%= I18n.t("errors.messages.not_saved",
+                           count: @user.errors.count,
+                           resource: @user.class.model_name.human.downcase)
+                 %>
+              </h2>
+              <ul>
+                <% @user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= attachment_image_tag @user, :image, :fill, 0, 60, fallback: "no_image.jpg"%>
+          <div class="form-group">
+            <label for="user_image">Image</label>
+            <div><%= f.attachment_field :image, placeholder:"プロフィール画像"%></div>
+          </div>
+          <div class="form-group">
+            <label for="user_name">Name</label>
+            <div><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></div>
+          </div>
+          <div class="form-group">
+            <label for="user_introduction">Introduction</label>
+            <div><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介"%></div>
+          </div>
+          <div class="form-group">
+            <%= f.submit "変更を保存する", class: "btn btn-secondary"%>
+            <%= link_to "退会", user_path(@user), method: :delete, data: {confirm: "本当に退会しますか?"}, class: "btn btn-sm btn-danger destroy_book_14995"%>
+          </div>
+          <% end %>
+      </div>
+      </div>
+      </div>
+    </main>
+  </body>
+</html>

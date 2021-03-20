@@ -1,12 +1,16 @@
 class BreweriesController < ApplicationController
   def index
     @breweries = Brewery.all
+    @user = current_user
   end
 
   def show
+    @brewery = Brewery.find(params[:id])
+    @user = @brewery.user
   end
 
   def edit
+    @brewery = Brewery.find(params[:id])
   end
 
   def new
@@ -15,15 +19,31 @@ class BreweriesController < ApplicationController
 
   def create
     @brewery = Brewery.new(brewery_params)
-    #@brewery.user_id = current_user.id
-    @brewery.save
-    redirect_to breweries_path
+    @brewery.user_id = current_user.id
+    if @brewery.save
+      flash[:notice] = "Brewery is successfully created."
+      redirect_to breweries_path
+    else
+      @breweries = Brewery.all
+      @user = current_user
+      render :index
+    end
   end
 
   def update
+     @brewery = Brewery.find(params[:id])
+    if @brewery.update(brewery_params)
+    #flash[:notice] = "Brewery is successfully updated."
+    redirect_to user_path(current_user)
+    else
+      render :edit
+    end
   end
 
   def destroy
+    @brewery = Brewery.find(params[:id])
+    @brewery.destroy
+    redirect_to user_path(current_user)
   end
 
   private

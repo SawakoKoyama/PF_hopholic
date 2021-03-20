@@ -1,2 +1,35 @@
-<h1>Breweries#edit</h1>
-<p>Find me in app/views/breweries/edit.html.erb</p>
+<h2>投稿編集</h2>
+
+              <%= form_with model:@brewery, local: true do |f| %>
+              <div class="form-group">
+                <label for="brewery_image"></label>
+                  <div><%= f.attachment_field :image, placeholder:"ブルワリー画像"%></div>
+                </div>
+                <div class="form-group">
+                  <label for="brewery_title">ブルワリー</label>
+                  <div><%= f.text_field :brewery_name %></div>
+                </div>
+                <div class="form-group">
+                  <label for="brewery_prefecture">地域</label>
+                  <div><%= f.text_field :prefecture_id %></div>
+                </div>
+                <div class="form-group">
+                  <label for="brewery_comment">コメント</label>
+                  <div><%= f.text_area :comment %></div>
+                </div>
+                <div class="form-group">
+                  <label for="brewery_comment">評価</label>
+                  <div></div>
+                </div>
+                <div class="form-group">
+                  <div><%= f.submit '変更を保存する', class: "btn btn-success"%></div>
+                </div>
+                <%= link_to "詳細", brewery_path(@brewery) %>｜
+                <%= link_to "戻る", user_path(current_user) %>
+              <% end %>
+            </div>
+
+
+
+
+

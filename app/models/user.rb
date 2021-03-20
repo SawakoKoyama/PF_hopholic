@@ -3,7 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_many :breweries
   attachment :image
+  
+  has_many :breweries, dependent: :destroy
+  
+  validates :name, presence: true, uniqueness: true,
+    length: { minimum: 2, maximum: 20 }
+  validates :introduction, length: { maximum: 70 }
+
 end

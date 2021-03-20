@@ -1,2 +1,14 @@
-<h1>Breweries#show</h1>
-<p>Find me in app/views/breweries/show.html.erb</p>
+<h2>投稿詳細</h2>
+              
+                    <div><%= attachment_image_tag @brewery, :image, size: "60x60", fallback: "no_image.jpg"%></div>
+                    
+                    <div>ブルワリー：<%= @brewery.brewery_name %></div>
+                    <div>地域：<%= @brewery.prefecture_id %></div>
+                    <div>投稿者：<%= link_to "#{@user.name}", user_path(@user) %></div>
+                    <div>コメント：<%= @brewery.comment %></div>
+                    <div>評価：</div>
+                    <% if @user.id == current_user.id %>
+                    <%= link_to "編集", edit_brewery_path(@brewery), class: "btn btn-sm btn-success edit_book_14995"%>
+                    <%= link_to "削除", brewery_path(@brewery), method: :delete, data: {confirm: "本当に削除しますか?"}, class: "btn btn-sm btn-danger destroy_book_14995"%></td>
+                    <% end %>
+                  
