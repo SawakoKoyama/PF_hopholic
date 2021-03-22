@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get "about" => "homes#about" , as: "about"
   resources :users
   resources :breweries
+  resources :relationships, only: [:create, :destroy]
 end

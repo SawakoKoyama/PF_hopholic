@@ -32,6 +32,7 @@
                             <th>image</th>
                             <th>name</th>
                             <th>intoroduction</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -44,6 +45,15 @@
                             </td>
                             <td><%= user.name %></td>
                             <td><%= user.introduction %></td>
+                            <td>
+                              <%# if logged_in? && current_user != user %>
+                               <% if current_user.following?(user) %>
+                                <%= button_to 'フォロー解除', relationship_path(current_user.relationships.find_by(follow: user)), method: :delete %>
+                               <% else %>
+                               <%= button_to 'フォロー', relationships_path(follow: user) %>
+                               <% end %>
+                              <%# end %>
+                            </td>
                         </tr>
                         <% end %>
                     </tbody>
