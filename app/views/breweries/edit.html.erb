@@ -1,5 +1,7 @@
-<h2>投稿編集</h2>
-
+<div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+            <h2>投稿編集</h2>
               <%= form_with model:@brewery, local: true do |f| %>
               <div class="form-group">
                 <label for="brewery_image"></label>
@@ -10,7 +12,7 @@
                   <div><%= f.text_field :brewery_name %></div>
                 </div>
                 <div class="form-group">
-                  <label for="brewery_prefecture">地域</label>
+                  <label for="brewery_prefecture">都道府県</label>
                   <div><%= f.text_field :prefecture_id %></div>
                 </div>
                 <div class="form-group">
@@ -24,10 +26,14 @@
                 <div class="form-group">
                   <div><%= f.submit '変更を保存する', class: "btn btn-success"%></div>
                 </div>
-                <%= link_to "詳細", brewery_path(@brewery) %>｜
-                <%= link_to "戻る", user_path(current_user) %>
+                <div class="form-group">
+                  <%= link_to "詳細", brewery_path(@brewery), class: "btn btn-secondary" %>
+                  <%= link_to "戻る", user_path(current_user), class: "btn btn-secondary" %>
+                </div>
               <% end %>
             </div>
+        </div>
+</div>
 
 
 
