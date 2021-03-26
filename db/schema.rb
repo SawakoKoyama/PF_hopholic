@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_113909) do
+ActiveRecord::Schema.define(version: 2021_03_26_074742) do
 
   create_table "breweries", force: :cascade do |t|
     t.integer "user_id"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 2021_03_22_113909) do
     t.string "star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "brewery_id"
   end
 
   create_table "relationships", force: :cascade do |t|
