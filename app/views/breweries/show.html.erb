@@ -11,19 +11,10 @@
           <div class="col-md-8 offset-md-1">
               <div>コメント：<%= @brewery.comment %></div>
               <div>評価：</div>
-              <% if @brewery.favorited_by?(current_user) %>
-                <p>
-                  <%= link_to favorites_path(@brewery), method: :delete do %>
-                    ♥<%= @brewery.favorites.count %> いいね
-                  <% end %>
-                </p>
-              <% else %>
-                <p>
-                  <%= link_to favorites_path(@brewery), method: :post do %>
-                    ♡<%= @brewery.favorites.count %> いいね
-                  <% end %>
-                </p>
-              <% end %>
+
+              <div id="likes_buttons_<%= @brewery.id %>">
+               <%= render partial: 'favorites/like', locals: { brewery: @brewery} %>
+              </div>
               <% if @user.id == current_user.id %>
                 <%= link_to "編集", edit_brewery_path(@brewery), class: "btn btn-sm btn-success edit_book_14995"%>
                 <%= link_to "削除", brewery_path(@brewery), method: :delete, data: {confirm: "本当に削除しますか?"}, class: "btn btn-sm btn-danger destroy_book_14995"%></td>
