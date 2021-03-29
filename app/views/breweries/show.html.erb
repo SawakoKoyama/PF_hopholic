@@ -13,9 +13,24 @@
           </div>
           <div class="col-md-8 offset-md-1">
               <div>コメント：<%= @brewery.comment %></div>
-              <div>評価：</div>
-
-
+              <%# @breweries.each do |brewery| %>
+                <div class="relative-post-evaluation">
+                  <span>評価：</span>
+                  <span id="star-rate-<%= @brewery.id %>"></span>
+                  <script>
+                    $('#star-rate-<%= @brewery.id %>').raty({
+                      size: 36,
+                      starOff: "<%= asset_path('star-off.png') %>",
+                      starOn: "<%= asset_path('star-on.png') %>",
+                      starHalf: "<%= asset_path('star-half.png') %>",
+                      half: true,
+                      readOnly: true,
+                      score: <%= @brewery.star %>,
+                    });
+                  </script>
+                  <%= @brewery.star %>
+                </div>
+                <%# end %>
               <% if @user.id == current_user.id %>
                 <%= link_to "編集", edit_brewery_path(@brewery), class: "btn btn-sm btn-success edit_book_14995"%>
                 <%= link_to "削除", brewery_path(@brewery), method: :delete, data: {confirm: "本当に削除しますか?"}, class: "btn btn-sm btn-danger destroy_book_14995"%></td>

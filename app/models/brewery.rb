@@ -3,6 +3,9 @@ class Brewery < ApplicationRecord
     attachment :image
     
     has_many :favorites, dependent: :destroy
+    
+    extend ActiveHash::Associations::ActiveRecordExtensions
+    belongs_to_active_hash :prefecture
 
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
