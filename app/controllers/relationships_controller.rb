@@ -3,11 +3,13 @@ class RelationshipsController < ApplicationController
   def create
     @other_user = User.find(params[:follow])
     current_user.follow(@other_user)
+    #redirect_to users_path
   end
 
   def destroy
-    @user = current_user.relationships.find(params[:id]).follow
-    current_user.unfollow(params[:id])
+    @other_user = User.find(params[:follow])
+    current_user.unfollow(@other_user.id)
+    #redirect_to users_path
   end
 
   private

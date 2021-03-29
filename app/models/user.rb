@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :user
 
   has_many :favorites, dependent: :destroy
-  
+
   def follow(other_user)
     return if self == other_user
 
@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def unfollow(relathinoship_id)
-    relationships.find(relathinoship_id).destroy!
+    relationships.find_by(follow: relathinoship_id).destroy!
   end
 end
 
