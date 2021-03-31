@@ -1,6 +1,6 @@
 class BreweriesController < ApplicationController
   def index
-    @breweries = Brewery.all
+    @breweries = Brewery.search(params[:prefecture_id])
     @user = current_user
   end
 

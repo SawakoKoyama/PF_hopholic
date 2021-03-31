@@ -5,7 +5,7 @@
             <h2>投稿詳細</h2>
               <div><%= attachment_image_tag @brewery, :image, size: "400x400", fallback: "no_image.jpg"%></div>
               <div>ブルワリー：<%= @brewery.brewery_name %></div>
-              <div>地域：<%= @brewery.prefecture_id %></div>
+              <div>地域：<%= @brewery.prefecture.try(:name) %></div>
               <div>投稿者：<%= link_to "#{@user.name}", user_path(@user) %></div>
               <div id="likes_buttons_<%= @brewery.id %>">
                <%= render partial: 'favorites/like', locals: { brewery: @brewery} %>

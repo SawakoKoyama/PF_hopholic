@@ -1,17 +1,9 @@
-  <%# if @brewery.errors.any? %>
-        <%#div id="error_explanation">
-          <h2>
-            <%= I18n.t("errors.messages.not_saved",
-                       count: @brewery.errors.count,
-                       resource: @brewery.class.model_name.human.downcase)
-             %>
-          </h2>
-          <ul>
-            <%# @brewery.errors.full_messages.each do |message| %>
-              <%#li><%= message %></li>
-            <%# end %>
-          </ul>
-        </div>
+
+
+  <%= form_with url: breweries_path, method: :get, local: true do |f| %>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
+    <%= f.submit "検索", class: "search_submit" %>
+  <% end %>
         <div class="row">
             <h2>Breweries</h2>
               <% @breweries.each do |brewery| %>
@@ -22,7 +14,7 @@
                   <% end %>
                 </div>
                 <div><%= brewery.brewery_name %></div>
-                <div><%= brewery.prefecture_id %></div>
+                <div><%= brewery.prefecture.try(:name) %></div>
                 <div><%= @user.name %></div>
               </div>
               <% end %>
@@ -30,5 +22,3 @@
                 <%= link_to new_brewery_path, method: :get do %>
                   <i class="fas fa-plus-circle"></i>
                 <% end %>
-
-<%# end %>

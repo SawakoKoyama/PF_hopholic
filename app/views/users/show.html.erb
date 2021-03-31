@@ -35,7 +35,7 @@
                         <% end %>
                       </div>
                         <div><%= brewery.brewery_name %></div>
-                        <div><%= brewery.prefecture_id %></div>
+                        <div><%= brewery.prefecture.try(:name) %></div>
                       </div>
                     <% end %>
             </div>
