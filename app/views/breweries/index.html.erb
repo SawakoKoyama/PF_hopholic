@@ -1,9 +1,12 @@
-
-
-  <%= form_with url: breweries_path, method: :get, local: true do |f| %>
-    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
-    <%= f.submit "検索", class: "search_submit" %>
+ <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
   <% end %>
+      <%= form_with url: breweries_path, method: :get, local: true do |f| %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
+        <%= f.submit "検索", class: "search_submit" %>
+      <% end %>
         <div class="row">
             <h2>Breweries</h2>
               <% @breweries.each do |brewery| %>
@@ -19,6 +22,6 @@
               </div>
               <% end %>
         </div>
-                <%= link_to new_brewery_path, method: :get do %>
-                  <i class="fas fa-plus-circle"></i>
-                <% end %>
+        <%= link_to new_brewery_path, method: :get do %>
+          <i class="fas fa-plus-circle"></i>
+        <% end %>

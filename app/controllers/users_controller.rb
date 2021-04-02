@@ -19,28 +19,33 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user != current_user
-      redirect_to user_path(current_user) and return
-    end
     @user = User.find(params[:id])
-    if @user.update(user_params)
-     flash[:notice] = "User is successfully updated."
-     redirect_to user_path(current_user)
-    else
-     render :edit
-    end
+      if @user != current_user
+        redirect_to user_path(current_user) and return
+      end
+      if @user.update(user_params)
+        flash[:notice] = "User is successfully updated."
+        redirect_to user_path(current_user)
+      else
+        render :edit
+      end
   end
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to root_path
+      if @user.destroy
+        flash[:notice] = "User is successfully deleted."
+        redirect_to root_path
+      else
+        render :edit
+      end
   end
 
-  private
+private
+  def user_params
+    params.require(:user).permit(:name, :image, :introduction)
+  end
 
-def user_params
-  params.require(:user).permit(:name, :image, :introduction)
 end
 
-end
+

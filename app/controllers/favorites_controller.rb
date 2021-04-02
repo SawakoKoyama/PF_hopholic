@@ -3,14 +3,12 @@ class FavoritesController < ApplicationController
     @brewery = Brewery.find(params[:format])
     favorite = current_user.favorites.new(brewery_id: @brewery.id)
     favorite.save
-    #redirect_to brewery_path(brewery)
   end
 
   def destroy
     @brewery = Brewery.find(params[:format])
     favorite = current_user.favorites.find_by(brewery_id: @brewery.id)
     favorite.destroy
-    #redirect_to brewery_path(brewery)
   end
 
 end

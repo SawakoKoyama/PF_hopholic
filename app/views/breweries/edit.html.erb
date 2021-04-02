@@ -2,9 +2,24 @@
         <div class="row">
           <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
             <h2>投稿編集</h2>
+            <% if @brewery.errors.any? %>
+                <div id="error_explanation">
+                  <h2>
+                    <%= I18n.t("errors.messages.not_saved",
+                               count: @brewery.errors.count,
+                               resource: @brewery.class.model_name.human.downcase)
+                     %>
+                  </h2>
+                  <ul>
+                    <% @brewery.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
               <%= form_with model:@brewery, local: true do |f| %>
-              <div class="form-group">
-                <label for="brewery_image"></label>
+                <div class="form-group">
+                  <label for="brewery_image"></label>
                   <div><%= f.attachment_field :image, placeholder:"ブルワリー画像"%></div>
                 </div>
                 <div class="form-group">
@@ -12,11 +27,7 @@
                   <div><%= f.text_field :brewery_name %></div>
                 </div>
                 <label for="brewery_prefecture">都道府県</label>
-                <div>
-
-                    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
-
-                </div>
+                <div><%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %></div>
                 <div class="form-group">
                   <label for="brewery_comment">コメント</label>
                   <div><%= f.text_area :comment %></div>

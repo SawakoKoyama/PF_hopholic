@@ -1,8 +1,11 @@
 class Brewery < ApplicationRecord
     belongs_to :user
     attachment :image
-
     has_many :favorites, dependent: :destroy
+
+    validates :brewery_name, presence: true
+    validates :prefecture_id, presence: true
+    validates :comment, presence: true, length: { maximum: 200 }
 
     extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to_active_hash :prefecture
@@ -16,6 +19,4 @@ class Brewery < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
-    validates :brewery_name, presence: true
-    #validates :body, presence: true, length: { maximum: 200 }
 end

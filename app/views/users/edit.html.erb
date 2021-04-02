@@ -24,25 +24,25 @@
             </div>
           <% end %>
           <%= attachment_image_tag @user, :image, :fill, 0, 60, fallback: "no_image.jpg"%>
-          <div class="form-group">
-            <label for="user_image">プロフィール写真</label>
-            <div><%= f.attachment_field :image, placeholder:"プロフィール画像"%></div>
-          </div>
-          <div class="form-group">
-            <label for="user_name">名前</label>
-            <div><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></div>
-          </div>
-          <div class="form-group">
-            <label for="user_introduction">自己紹介</label>
-            <div><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介"%></div>
-          </div>
-          <div class="form-group">
-            <%= f.submit "変更を保存する", class: "btn btn-success"%>
-            <%= link_to "退会", user_path(@user), method: :delete, data: {confirm: "本当に退会しますか?"}, class: "btn btn-danger destroy_book_14995"%>
-          </div>
+            <div class="form-group">
+              <label for="user_image">プロフィール写真</label>
+              <div><%= f.attachment_field :image, placeholder:"プロフィール画像"%></div>
+            </div>
+            <div class="form-group">
+              <label for="user_name">名前</label>
+              <div><%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%></div>
+            </div>
+            <div class="form-group">
+              <label for="user_introduction">自己紹介</label>
+              <div><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", placeholder:"自己紹介"%></div>
+            </div>
+            <div class="form-group">
+              <%= f.submit "変更を保存する", class: "btn btn-success"%>
+              <%= link_to "退会", user_path(@user), method: :delete, data: {confirm: "本当に退会しますか?"}, class: "btn btn-danger destroy_book_14995"%>
+            </div>
           <% end %>
-      </div>
-      </div>
+          </div>
+        </div>
       </div>
     </main>
   </body>
