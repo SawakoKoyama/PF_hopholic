@@ -19,4 +19,7 @@ class Brewery < ApplicationRecord
     favorites.where(user_id: user.id).exists?
   end
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
 end

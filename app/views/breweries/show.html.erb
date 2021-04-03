@@ -17,7 +17,39 @@
               </div>
           </div>
           <div class="col-md-8 offset-md-1">
-              <div>コメント：<%= @brewery.comment %></div>
+                <script type="text/javascript">
+                  function initMap() {
+                    var test ={lat: <%= @brewery.latitude %>, lng: <%= @brewery.longitude %>};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                              zoom: 15,
+                              center: test
+                              });
+                    var transitLayer = new google.maps.TransitLayer();
+                    transitLayer.setMap(map);
+
+                    var contentString = '住所：<%= @brewery.address %>';
+                    var infowindow = new google.maps.InfoWindow({
+                      content: contentString
+                    });
+                    var marker = new google.maps.Marker({
+                                  position:test,
+                                  map: map,
+                                  title: contentString
+                                 });
+                     marker.addListener('click', function() {
+                       infowindow.open(map, marker);
+                     });
+                  }
+                </script>
+                <script async defer
+                              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA_da_1uPYkmS4kcibKdzZtJ03q35f59pU&callback=initMap">
+                </script>
+                <style type="text/css">
+                  #map { height: 400px;
+                         width: 70%;}
+                </style>
+                <div id="map"></div>
+                <div>コメント：<%= @brewery.comment %></div>
                 <div class="relative-post-evaluation">
                   <span>評価：</span>
                   <span id="star-rate-<%= @brewery.id %>"></span>
