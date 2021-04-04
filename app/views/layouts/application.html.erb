@@ -7,17 +7,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-white">
        <div class="container">
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
           <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "HOPHOLIC", root_path, class: 'nav-link text-light' %>
+            <li class="nav-item1">
+              <%= link_to "Hop Holic", root_path, class: 'nav-link text-dark' %>
             </li>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -26,22 +29,22 @@
                   <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
-                        <%= link_to "マイページ", user_path(current_user.id), class: 'fas fa-home nav-link text-light' %>
+                        <%= link_to "My page", user_path(current_user.id), class: 'nav-link text-dark' %>
                       </li>
                       <li class="nav-item">
-                        <%= link_to "ブルワリー", breweries_path, class: 'fas fa-beer nav-link text-light' %>
+                        <%= link_to "Brewery", breweries_path, class: 'nav-link text-dark' %>
                       </li>
                       <li class="nav-item">
-                        <%= link_to "ユーザー", users_path, class: 'fas fa-users nav-link text-light' %>
+                        <%= link_to "User", users_path, class: 'nav-link text-dark' %>
                       </li>
                       <li class="nav-item">
-                        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light' %>
+                        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
                       </li>
                     </ul>
                   </div>
           <% else %>
-            <li class="nav-item">
-              <%= link_to "HOPHOLIC", root_path, class: 'nav-link text-light' %>
+            <li class="nav-item1">
+              <%= link_to "Hop Holic", root_path, class: 'nav-link text-dark' %>
             </li>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,13 +53,13 @@
                   <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
-                         <%= link_to "HopHolicって？", about_path, class: 'fas fa-link nav-link text-light' %>
+                         <%= link_to "About", about_path, class: 'nav-link text-dark' %>
                       </li>
                       <li class="nav-item">
-                         <%= link_to "新規登録", new_user_registration_path, class: 'fas fa-user-plus nav-link text-light' %>
+                         <%= link_to "Sign in", new_user_registration_path, class: 'nav-link text-dark' %>
                       </li>
                       <li class="nav-item">
-                         <%= link_to "ログイン", user_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %>
+                         <%= link_to "Log in", user_session_path, class: 'nav-link text-dark' %>
                       </li>
                     </ul>
                   </div>
@@ -72,7 +75,7 @@
       <div class="container mt-5">
         <div class="row">
           <div class="mx-auto">
-            <p>CopyRight HopHolic.inc</p>
+            <p>© All rights reserved by Hop Holic.</p>
           </div>
         </div>
       </div>

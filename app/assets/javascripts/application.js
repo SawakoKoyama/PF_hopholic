@@ -13,9 +13,24 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require jquery.raty.js
-
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+//= require_tree 
+//= require jquery
+
+
+
+$(document).on('ready', function() {
+  $(".box").slick({
+    arrows: false,
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    speed: 1500,
+    fade: true,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    pauseOnDotsHover: false,
+  });
+});
