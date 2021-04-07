@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
   <body>
@@ -20,7 +21,7 @@
           <ul class="navbar-nav">
           <% if user_signed_in? %>
             <li class="nav-item1">
-              <%= link_to "Hop Holic", root_path, class: 'nav-link text-dark' %>
+              <%= link_to "Hop Holic", root_path, data: {"turbolinks" => false}, class: 'nav-link text-dark' %>
             </li>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -44,7 +45,7 @@
                   </div>
           <% else %>
             <li class="nav-item1">
-              <%= link_to "Hop Holic", root_path, class: 'nav-link text-dark' %>
+              <%= link_to "Hop Holic", root_path, data: {"turbolinks" => false}, class: 'nav-link text-dark' %>
             </li>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -53,7 +54,7 @@
                   <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ml-auto">
                       <li class="nav-item">
-                         <%= link_to "About", about_path, class: 'nav-link text-dark' %>
+                         <%= link_to "About", about_path, data: {"turbolinks" => false}, class: 'nav-link text-dark' %>
                       </li>
                       <li class="nav-item">
                          <%= link_to "Sign in", new_user_registration_path, class: 'nav-link text-dark' %>

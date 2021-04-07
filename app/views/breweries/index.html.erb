@@ -3,7 +3,7 @@
     <%= flash[:notice] %>
   </div>
 <% end %>
-
+<div class="background">
   <div class="container-fluid">
     <div class="row">
       <div class="col-auto ml-1 mt-2">
@@ -35,5 +35,6 @@
               </div>
             </div>
           </div>
+          <%= paginate @breweries %>
   </div>
-
+</div>

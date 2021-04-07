@@ -2,6 +2,7 @@
   <div class="flash">
     <%= flash[:notice] %>
   </div>
+  <div class="background">
     <div class="container px-5 px-sm-0">
       <div class="row">
           <div class="col-md-3">
@@ -22,7 +23,7 @@
               </table>
               <div class="row">
                 <% if @user.id == current_user.id %>
-                  <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block", method: :get do %>
+                  <%= link_to edit_user_path(@user), class: "btn btn-outline-light btn-block", method: :get do %>
                     <i class="fas fa-user-cog"></i>
                   <% end %>
                 <% end %>
@@ -35,7 +36,7 @@
               </div>
             </div>
             <div class="row mx-auto">
-              <div class="col-11 mx-auto">
+              <div class="col-md-9">
                 <div class="d-flex align-content-start flex-wrap mt-4">
                   <% @breweries.each do |brewery| %>
                     <div class="mx-5 my-4 out-line">
@@ -50,6 +51,9 @@
                   <% end %>
                 </div>
               </div>
+              <%= paginate @breweries %>
             </div>
           </div>
+        </div>
+      </div>
 </main>

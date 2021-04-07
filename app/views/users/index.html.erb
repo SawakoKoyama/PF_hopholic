@@ -1,4 +1,5 @@
 <main>
+  <div class="background">
     <div class="container px-5 px-sm-0">
       <div class="row">
           <div class="col-md-3">
@@ -18,7 +19,7 @@
                 </tbody>
               </table>
               <div class="row">
-                <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block", method: :get do %>
+                <%= link_to edit_user_path(@user), class: "btn btn-outline-light btn-block", method: :get do %>
                   <i class="fas fa-user-cog"></i>
                 <% end %>
               </div>
@@ -63,4 +64,5 @@
             </div>
         </div>
     </div>
+  </div>  
 </main>
