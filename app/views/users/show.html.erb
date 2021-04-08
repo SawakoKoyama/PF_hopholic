@@ -29,15 +29,8 @@
                 <% end %>
               </div>
           </div>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-auto ml-1 mt-2">
-                <h3>投稿一覧</h3>
-              </div>
-            </div>
-            <div class="row mx-auto">
-              <div class="col-md-9">
-                <div class="d-flex align-content-start flex-wrap mt-4">
+            <div class="col-md-8 offset-md-1"> 
+              <div class="d-flex align-content-start flex-wrap mt-4">
                   <% @breweries.each do |brewery| %>
                     <div class="mx-5 my-4 out-line">
                       <div>
@@ -49,11 +42,10 @@
                         <div class="text-center"><%= brewery.prefecture.try(:name) %></div>
                       </div>
                   <% end %>
+                  <%= paginate @breweries %>
                 </div>
               </div>
-              <%= paginate @breweries %>
-            </div>
-          </div>
         </div>
       </div>
+    </div>  
 </main>

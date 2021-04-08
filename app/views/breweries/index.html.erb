@@ -29,7 +29,7 @@
                     </div>
                     <div class="text-center"><%= brewery.brewery_name %></div>
                     <div class="text-center"><%= brewery.prefecture.try(:name) %></div>
-                    <div class="text-center"><%= @user.name %></div>
+                    <div class="text-center"><%= brewery.user.name %></div>
                   </div>
                 <% end %>
               </div>

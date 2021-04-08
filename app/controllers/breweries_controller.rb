@@ -1,7 +1,6 @@
 class BreweriesController < ApplicationController
   def index
     @breweries = Brewery.search(params[:prefecture_id]).all.page(params[:page]).per(8)
-    @user = current_user
   end
 
   def show
