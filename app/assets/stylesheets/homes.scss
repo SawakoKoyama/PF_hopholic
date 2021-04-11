@@ -12,6 +12,21 @@
   width: 100%;
 }
 
+.box .img01 {
+  background-image: asset-url("beer1.jpg");
+}
+
+.box .img02 {
+  background-image: asset-url("beer2.jpg");
+}
+
+.box .img03 {
+  background-image: asset-url("beer3.jpg");
+}
+
+.box .img04 {
+  background-image: asset-url("beer4.jpg");
+}
 
 .box .slick-dots {
   bottom: 4%;
