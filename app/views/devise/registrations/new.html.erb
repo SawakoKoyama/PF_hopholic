@@ -3,9 +3,10 @@
   <body>
     <header></header>
     <main>
+      <div class="background">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0">
+          <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
             <h2>新規登録</h2>
 
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -37,13 +38,14 @@
                 <%= f.submit "新規登録" %>
               </div>
             <% end %>
-
+            <br>
             <h5>既に登録済みの方</h5>
             <p>
               <%= link_to "こちら", new_user_session_path %>からログインしてください。
             </p>
              </div>
          </div>
+      </div>
       </div>
     </main>
   </body>
