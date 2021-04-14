@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.box Img {
+.box div {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -12,6 +12,21 @@
   width: 100%;
 }
 
+.box .img01 {
+  background-image: url("beer1.jpg");
+}
+
+.box .img02 {
+  background-image: url("beer2.jpg");
+}
+
+.box .img03 {
+  background-image: url("beer3.jpg");
+}
+
+.box .img04 {
+  background-image: url("beer4.jpg");
+}
 
 .box .slick-dots {
   bottom: 4%;
