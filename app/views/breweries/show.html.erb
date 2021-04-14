@@ -32,7 +32,7 @@
                     var transitLayer = new google.maps.TransitLayer();
                     transitLayer.setMap(map);
 
-                    var contentString = '住所：<%= @brewery.address %>';
+                    var contentString = '<p class="infowindow">住所：<%= @brewery.address %></p>';
                     var infowindow = new google.maps.InfoWindow({
                       content: contentString
                     });
@@ -42,6 +42,7 @@
                                   title: contentString
                                  });
                      marker.addListener('click', function() {
+                       console.log("contentString: ", contentString);
                        infowindow.open(map, marker);
                      });
                   }
